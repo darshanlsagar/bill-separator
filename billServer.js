@@ -10,7 +10,10 @@ var urlencodedParser = bodyParser.urlencoded({
 
 var app = express();
 /* Using sessions */
-
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 8000;
+}
 app.use(session({
         secret: 'todotopsecret'
     }))
@@ -77,4 +80,4 @@ app.use(session({
         res.sendFile(path.join(__dirname, 'public', 'index.html'));
         
     })
-.listen(8080);
+.listen(port);
