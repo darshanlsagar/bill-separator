@@ -1,1 +1,1 @@
-web: node billServer.js
+web: npm start
